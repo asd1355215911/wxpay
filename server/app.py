@@ -12,19 +12,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    '''
+    """
 
     :return:
-    '''
+    """
     return jsonify({'errcode': 0, 'errmsg': 'ok'})
 
 
 @app.route('/wxpay/pay')
 def create_pay():
-    '''
+    """
     请求支付
     :return:
-    '''
+    """
     data = {
         'appid': appid,
         'mch_id': mch_id,
@@ -48,10 +48,10 @@ def create_pay():
 
 @app.route('/wxpay/notify', methods=['POST'])
 def wxpay():
-    '''
+    """
     支付回调通知
     :return:
-    '''
+    """
     if request.method == 'POST':
         logging.info(xml_to_dict(request.data))
         result_data = {
